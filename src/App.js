@@ -3,7 +3,7 @@ import './App.css';
 
 import Todo from "./todo.js"
 
-var tasks=["Bootcamp class","Virtual Assistant class"]
+var tasks=["Bootcamp class","Virtual Assistant class", "blahhhh"]
 
 function App() {
   
