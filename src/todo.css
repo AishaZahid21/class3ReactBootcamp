@@ -1,0 +1,6 @@
+ul{
+    list-style-type: circle;
+}
+li:nth-child(even){
+background: #e4e4e4;;
+}
