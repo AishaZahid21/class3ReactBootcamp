@@ -21,24 +21,22 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-          # Runs a single command using the runners shell
-      #install node
-      - name: Setup node.js environment
+      # Runs a single command using the runners shell
+      - name: setup node.js environment
         uses: actions/setup-node@v2-beta
         with:
-          version: 12 
-            
-      # install yarn 
-      - name: GitHub actions for yarn
+          version: 12
+      
+      - name: Github actions for yarn
         uses: Borales/actions-yarn@v2.1.0
         with:
            cmd: install #npm install/yarn
            
-      - name: Creating build
+      - name: create build
         run: yarn build
-           
-      - name: Installing surge
+        
+      - name: install surge
         run: npm install -g surge
         
-      - name: Deploying using surge
-        run: surge ./build http://brainy-react.surge.sh/ --token ${{ secrets.SURGE_TOKEN }}
+      - name: deploy to surge
+        run: surge ./build http://brainy-react.surge.sh/ --token ${{ secrets.SURGE_TOKEN}}
