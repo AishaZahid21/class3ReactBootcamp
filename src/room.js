@@ -2,43 +2,28 @@ import React , {useState} from "react"
 import "./room.css"
 
 function Room(){
-    const [isLit , setLit] = useState(true);
-    const [tempValue, setTemp] = useState(72);
-    const brightness = isLit ? 'lit': 'dark';
+    let [isLit , setLit] = useState(true);
+    let [tempValue] = useState({'lit': 72, 'dark':44});
+    
   
   return <div
-   className={`room ${brightness}`}>
+   className={`room ${isLit ? 'lit': 'dark'}`}>
     This room is {isLit ? 'lit' : 'dark'}
   <br/>
-  Room temperature is {tempValue}
+  Room temperature is {isLit ? tempValue.lit : tempValue.dark}
   <br/>
-  
+ 
   <button onClick={()=>{
     if(!isLit){
       setLit(!isLit)
-      setTemp(72)
-    }
+        }
   }}> ON </button>
   
   <button onClick={()=>{
     if(isLit){
       setLit(!isLit)
-     setTemp(44)
     }
   }}> OFF </button>
-  
-  <br/>
-  
-  <button onClick={()=>{
-    var newTempValue = tempValue + 1
-    setTemp(newTempValue)
-  }}> + </button>
-  
-  <button onClick={()=>{
-    var newTempValue = tempValue - 1
-    setTemp(newTempValue)
-  }}> - </button>
-  <br/>
   
   </div>
   
